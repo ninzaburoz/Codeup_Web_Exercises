@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+	<h2>FAQ</h2>
+	<dt id="dropdown">What government agency oversees the National Park Service?</dt>
+		
+		<dd class="invisible">The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is the Department's Assistant Secretary for Fish, Wildlife and Parks.</dd>
+	</br>
+
+	<dt id="dropdown">How old is the National Park System?</dt>
+		
+		<dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an Act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.</dd>
+	</br>
+	
+	<dt id="dropdown" >What is the origin of the National Park Service arrowhead?</dt>
+		
+		<dd class="invisible">The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on July 20, 1951. The Sequoia tree and bison represent vegetation and wildlife, the mountains and water represent scenic and recreational values, and the arrowhead represents historical and archeological values. It was registered Feb. 9, 1965, by the U.S. Patent Office as the official emblem of the NPS. Further information on the Arrowhead, including definitions, uses, powers to revoke uses, and penalties for wrongful use can be found in Title 36 Code of Federal Regulations 11.1-4.</dd>
+	</br>
+
+	<h2>Parks List</h2>
+
+    <h3 id="yose-head">Yosemite</h3>
+    <ul id="yosemite">
+        <li>Yosemite Falls: This is the tallest waterfall in North America. Snow runoff cascades down the 2,425 foot drop, with peak flow in May. In winter, an ice cone is often visible at the top of the falls.</li>
+        <li>Yosemite’s peaceful meadows and wetlands are the best place to spot the park’s unique flora and fauna. Bears, deer, foxes, bald eagles, raccoons, and more may be seen amidst the wildflowers and lush grasses. The most popular meadows — which have boardwalks and trails — are Cook’s, Sentenial, Stoneman and Leidig.</li>
+        <li>Mariposa Grove is blessed with about 500 mature giant sequoias. Giant sequoias can live to be 3,000 years old and are the largest known living things on earth. Visitors can hike or take a tram ride to see Mariposa’s sequoias.</li>
+        <li>Bridalveil Falls: A 620-foot waterfall of delicate beauty, Bridalveil Falls is located near the entrance of Yosemite Valley. Water roars during the springtime peak flow; during the rest of the year, its namesake light, dancing flow is on display.</li>
+    </ul>
+
+    <h3 id="grand-head">Grand Canyon</h3>
+    <ul id="grand">
+        <li>Is a chasm 277 miles long and up to 18 miles wide.</li>
+        <li>Below Yavapai point is 2,400 feet above sea level, about 4,500 feet below the South Rim and 5,400 feet below the North Rim for an average depth of about one mile.</li>
+        <li>Includes approximately 70 species of mammals, 250 species of birds, 25 types of reptiles and five species of amphibians.</li>
+        <li>Was formed by the Colorado River, which flows west through the canyon and averages about 300 feet width, 100 feet in depth and flows at an average speed of four miles per hour.</li>
+    </ul>
+
+<script type="text/javascript" src="java/jquery-2.1.4.min.js"></script>
+<script>
+$(document).ready(function() {
+
+	$('#dropdown').click(function() {
+		$('.invisible').toggle();
+	})
+
+    //$('#dropdown').click(function(event) {
+      //  $('dd').toggleClass('invisible');
+   	//});
+
+    $('ul').each(function() {
+    	$(this).children().first().css("font-weight", "bold");
+    });
+
+    $('#yose-head').click(function() {
+		$('#yosemite').slideToggle();
+	})
+
+	$('#grand-head').click(function() {
+		$('#grand').slideToggle();
+	})
+
+    //$('li').click(function(event) {
+    //	event.preventDefault();
+    //	$(this).parent().addClass('invisible');
+    //});
+
+});
+
+</script>
+</body>
+</html>

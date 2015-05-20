@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Google Maps Demo</title>
+	<style type="text/css">
+		#map-canvas {
+			width: 600px;
+			height: 400px;
+			border: 1px solid #999;
+		}
+
+	</style>
+</head>
+<body>
+<div id="map-canvas"></div>
+
+<!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAmwAbC7MFW97JD8DVZFtdi5ifGPWC0ME">
+   </script>
+    <!-- Script to show address on map -->
+  <script type="text/javascript">
+    // Set our map options
+    var mapOptions = {
+      // Set the zoom level
+      zoom: 18,
+      // This sets the center of the map at our location
+      center: { lat: 29.4284595, lng: -98.492433 }
+    };
+    // Render the map
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+</script>
+</body>
+</html>

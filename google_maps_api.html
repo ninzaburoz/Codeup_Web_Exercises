@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Google Maps Demo</title>
+	<style type="text/css">
+		#map-canvas {
+			width: 600px;
+			height: 400px;
+			border: 1px solid #999;
+		}
+
+	</style>
+</head>
+<body>
+<div id="map-canvas"></div>
+
+<!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAmwAbC7MFW97JD8DVZFtdi5ifGPWC0ME">
+   </script>
+    <!-- Script to show address on map -->
+  <script type="text/javascript">
+
+    var mapOptions = {
+      zoom: 11,
+      center: { lat: 29.525849, lng: -98.566575 }
+    }; 
+    // Render the map
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var bounds = new google.maps.LatLngBounds();
+
+
+    // locations:
+    var Restaurant = [
+      ['fujiya', 29.525849, -98.566575, 3],
+      ['pfChangs', 29.593062, -98.615812, 2],
+      ['cappys', 29.472657, -98.463501, 1]
+    ];
+    //setMarkers(map, Restaurant)
+    var infoWindowContent = [
+        ['<div class="info_content">' +
+        '<h3>First Location</h3>' +
+        '<p>First Location information</p>' +        
+        '</div>'],
+        ['<div class="info_content">' +
+        '<h3>Second Location</h3>' +
+        '<p>Second Location Information</p>' +
+        '</div>']
+        ['<div class="info_content">' +
+        '<h3>Third Location</h3>' +
+        '<p>Third Location Information</p>' +
+        '</div>']
+    ];
+    //var fujiya = { lat: 29.525849, lng: -98.566575 };
+    //var pfChangs = { lat: 29.593062, lng: -98.615812 };
+    //var cappys = { lat: 29.472657, lng: -98.463501 };
+  var infoWindow = new google.maps.InfoWindow(), Restaurant, i;
+//infoWindow = new google.maps.InfoWindow({ content: infoWindowContent });
+  //function setMarkers(map, Restaurant) {
+    for ( i = 0; i < Restaurant.length; i++) {
+      var position = new google.maps.LatLng(Restaurant[i][1], Restaurant[i][2]);
+      bounds.extend(position);
+      marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: Restaurant[i][0]
+        //content: infoWindowContent
+        //zIndex: Restaurant[3]
+      });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+
+      //google.maps.event.addListener(marker, 'click', function() {
+        //infowindow.open(map,marker);
+      //});
+    }
+  //}
+    // Markers
+
+
+    //var marker = new google.maps.Marker({
+      //position: fujiya,
+      //map: map
+    //});
+    //var infowindow = new google.maps.InfoWindow({
+      //content: 'Cappys Restaurant'
+    //});
+    //var marker = new google.maps.Marker({
+      //position: pfChangs, cappys,
+      //map: map
+    //});
+    //var marker = new google.maps.Marker({
+      //position: cappys,
+      //map: map
+    //})
+
+    //infoboxes
+    //var infowindow = new google.maps.InfoWindow({
+      //content:"Hello World!"
+    //});
+
+//google.maps.event.addListener(marker, 'click', function() {
+  //infowindow.open(map,marker);
+  //});
+</script>
+</body>
+</html>
